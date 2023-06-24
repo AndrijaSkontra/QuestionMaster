@@ -1,7 +1,7 @@
 package controller;
 
 import model.AUXFileReading;
-import model.AllQuestionData;
+import model.QuestionsAndAnswersData;
 import view.*;
 
 import javax.swing.*;
@@ -45,16 +45,38 @@ public class StartTestActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == startPanel.getStartButton()) {
+        Object source = e.getSource();
+
+        actionPerformedStartPanel(source);
+        actionPerformedStartModeDialog(source);
+        actionPerformedQuestionPanel(source);
+        actionPerformedOverviewPanel(source);
+
+    }
+
+    private void actionPerformedStartPanel(Object source) {
+
+        boolean startButtonPressed = (source == startPanel.getStartButton());
+        if (startButtonPressed) {
             mainFrame.openStartModeDialog();
-
-        } else if (e.getSource() == startPanel.getStatisticsButton()) {
+            return;
+        }
+        boolean statisticsButtonPressed = (source == startPanel.getStatisticsButton());
+        if (statisticsButtonPressed) {
             mainFrame.openStatisticsPanel();
-
-        } else if (e.getSource() == startPanel.getSettingsButton()) {
+            return;
+        }
+        boolean settingsButtonPressed = (source == startPanel.getSettingsButton());
+        if (settingsButtonPressed) {
             mainFrame.openSettingsPanel();
+            return;
+        }
+    }
 
-        } else if (e.getSource() == startModeDialog.getClassicModeButton()) {
+    private void actionPerformedStartModeDialog(Object source) {
+
+        boolean classicModeButtonPressed = (source == startModeDialog.getClassicModeButton());
+        if (classicModeButtonPressed) {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
             int value = fileChooser.showOpenDialog(mainFrame);
@@ -70,15 +92,15 @@ public class StartTestActionListener implements ActionListener {
             }
             startModeDialog.dispose();
             mainFrame.startQuestioning();
-
-        } else if (e.getSource() == startModeDialog.getNumberModeButton()) {
+            return;
+        }
+        boolean numberModeButtonPressed = (source == startModeDialog.getNumberModeButton());
+        if (numberModeButtonPressed) {
 
             String stringNumber = startModeDialog.getInputNumberField().getText();
             try {
                 int number = Integer.parseInt(stringNumber);
                 AUXFileReading.numberModeQuestionList(number);
-
-                // bug fix
                 AUXFileReading.file = null;
 
             } catch (NumberFormatException ex) {
@@ -88,23 +110,33 @@ public class StartTestActionListener implements ActionListener {
 
             startModeDialog.dispose();
             mainFrame.startQuestioning();
+            return;
+        }
+    }
 
-        } else if (e.getSource() == questionPanel.getNextQuestionButton()) {
+    private void actionPerformedQuestionPanel(Object source) {
+
+        boolean nextQuestionButtonPressed = (source == questionPanel.getNextQuestionButton());
+        if (nextQuestionButtonPressed) {
             // Check to see are there any buttons selected
             if (questionPanel.getButtonGroup().getSelection() != null) {
-
                 // send answer to AllQuestionData
                 if (questionPanel.getButtonGroup().getSelection().getActionCommand().equals("KNOW")) {
-                    AllQuestionData.questionAnswers.add("YES");
+                    QuestionsAndAnswersData.addToAllAnswers("YES");
                 } else if (questionPanel.getButtonGroup().getSelection().getActionCommand().equals("DONT KNOW")) {
-                    AllQuestionData.questionAnswers.add("NO");
+                    QuestionsAndAnswersData.addToAllAnswers("NO");
                 }
                 questionPanel.getButtonGroup().clearSelection();
                 mainFrame.nextQuestion();
             } else {
                 JOptionPane.showMessageDialog(mainFrame, "Please select an answer");
             }
-        } else if (e.getSource() == overviewPanel.getBackButton()) {
+        }
+    }
+
+    private void actionPerformedOverviewPanel(Object source) {
+        boolean backButtonPressed = (source == overviewPanel.getBackButton());
+        if (backButtonPressed) {
             mainFrame.backToStartPanel();
             statisticsPanel.getTextArea().setText(AUXFileReading.getStatistics());
         }

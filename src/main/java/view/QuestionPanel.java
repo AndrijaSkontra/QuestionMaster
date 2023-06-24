@@ -48,7 +48,7 @@ public class QuestionPanel extends JPanel {
     }
 
     private void layoutComponents() {
-        setLayout(new MigLayout("fillx, gapx 7%"));
+        setLayout(new MigLayout("fillx, gapy 7%"));
         add(questionLabel, "wrap");
         add(knowAnswerButton, "wrap");
         add(dontKnowAnswerButton, "wrap");

@@ -24,22 +24,31 @@ public class SettingsActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == settingsPanel.getDarkModeButton()) {
+        Object source = e.getSource();
+        boolean darkModeButtoPressed = (source == settingsPanel.getDarkModeButton());
+        if (darkModeButtoPressed) {
             try {
                 UIManager.setLookAndFeel(new FlatDarculaLaf());
             } catch (UnsupportedLookAndFeelException ex) {
                 throw new RuntimeException(ex);
             }
             mainFrame.updateUI();
-        } else if (e.getSource() == settingsPanel.getLightModeButton()) {
+            return;
+        }
+        boolean lightModeButtonPressed = (source == settingsPanel.getLightModeButton());
+        if (lightModeButtonPressed) {
             try {
                 UIManager.setLookAndFeel(new FlatIntelliJLaf());
             } catch (UnsupportedLookAndFeelException ex) {
                 throw new RuntimeException(ex);
             }
             mainFrame.updateUI();
-        } else if (e.getSource() == settingsPanel.getBackButton()) {
+            return;
+        }
+        boolean backButtonPressed = (source == settingsPanel.getBackButton());
+        if (backButtonPressed) {
             mainFrame.backToStartPanelFromSettings();
+            return;
         }
     }
 }

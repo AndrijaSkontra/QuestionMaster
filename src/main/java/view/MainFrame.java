@@ -4,7 +4,7 @@ import controller.SettingsActionListener;
 import controller.StartTestActionListener;
 import controller.StatisticsActionListener;
 import model.AUXFileReading;
-import model.AllQuestionData;
+import model.QuestionsAndAnswersData;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -100,7 +100,7 @@ public class MainFrame extends JFrame {
         if (AUXFileReading.questionList.size() > 0) {
             int randomIndex = ThreadLocalRandom.current().nextInt(0, AUXFileReading.questionList.size());
             String question = AUXFileReading.questionList.get(randomIndex);
-            AllQuestionData.allQuestions.add(question);
+            QuestionsAndAnswersData.addToAllQuestions(question);
             AUXFileReading.questionList.remove(randomIndex);
             questionPanel.getQuestionLabel().setText("<html><p>" + question + "</p></html>");
 

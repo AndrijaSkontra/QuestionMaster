@@ -21,7 +21,8 @@ public class StatisticsActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == statisticsPanel.getBackButton()) {
+        boolean backButtonPressed = (e.getSource() == statisticsPanel.getBackButton());
+        if (backButtonPressed) {
             mainFrame.backToStartPanelFromStatistics();
         }
     }

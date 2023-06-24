@@ -1,17 +1,12 @@
 package view;
 
 import controller.StartTestActionListener;
-import model.AUXFileReading;
-import model.AllQuestionData;
+import model.QuestionsAndAnswersData;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Date;
 
 
 // init and layout components in setData
@@ -19,7 +14,7 @@ public class OverviewPanel extends JPanel {
 
     private JTable overviewTable;
     private String[] columnNames;
-    private String[][] data;
+    private String[][] questionsAndAnswersData;
     private JScrollPane tableScrollPane;
     private JButton backButton;
     private StartTestActionListener startTestActionListener;
@@ -44,7 +39,7 @@ public class OverviewPanel extends JPanel {
         percentageLabel = new JLabel();
         backButton = new JButton("Back");
 
-        overviewTable = new JTable(data, columnNames);
+        overviewTable = new JTable(questionsAndAnswersData, columnNames);
 
         TableColumnModel columnModel = overviewTable.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(300);
@@ -70,23 +65,23 @@ public class OverviewPanel extends JPanel {
 
     public void setData() {
 
-        data = new String[AllQuestionData.questionAnswers.size()][2]; // change size
-        String percetnageOfKnownAnswers = calculatePercentageOfKnownAnswers();
+        questionsAndAnswersData = new String[QuestionsAndAnswersData.getAllAnswersSize()][2];
+        String percentageOfKnownAnswers = calculatePercentageOfKnownAnswersAsString();
 
-        percentageLabel.setText("Percentage of known answers: " + percetnageOfKnownAnswers + "%");
+        percentageLabel.setText("Percentage of known answers: " + percentageOfKnownAnswers + "%");
 
-        AllQuestionData.appendToTestsData(percetnageOfKnownAnswers);
+        QuestionsAndAnswersData.appendToTestsData(percentageOfKnownAnswers);
 
-        for (int i = 0; i < AllQuestionData.questionAnswers.size(); i++) {
-            data[i][0] = AllQuestionData.allQuestions.get(i);
-            data[i][1] = AllQuestionData.questionAnswers.get(i);
+        for (int i = 0; i < QuestionsAndAnswersData.getAllAnswersSize(); i++) {
+            questionsAndAnswersData[i][0] = QuestionsAndAnswersData.getAllQuestionElement(i);
+            questionsAndAnswersData[i][1] = QuestionsAndAnswersData.getAllQuestionElement(i);
         }
 
         // reset data
-        AllQuestionData.allQuestions.clear();
-        AllQuestionData.questionAnswers.clear();
+        QuestionsAndAnswersData.clearAllAnswers();
+        QuestionsAndAnswersData.clearAllQuestions();
 
-        DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+        DefaultTableModel model = new DefaultTableModel(questionsAndAnswersData, columnNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -96,11 +91,11 @@ public class OverviewPanel extends JPanel {
         overviewTable.setModel(model);
     }
 
-    private String calculatePercentageOfKnownAnswers() {
+    private String calculatePercentageOfKnownAnswersAsString() {
         float percentage;
-        int numOfQuestions = AllQuestionData.allQuestions.size();
+        int numOfQuestions = QuestionsAndAnswersData.getAllQuestionsSize();
         int numOfKnownAnswers = 0;
-        for (String answer : AllQuestionData.questionAnswers) {
+        for (String answer : QuestionsAndAnswersData.getAllAnswers()) {
             if (answer.equals("YES")) {
                 numOfKnownAnswers++;
             }

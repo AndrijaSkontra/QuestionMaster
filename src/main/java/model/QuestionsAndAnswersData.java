@@ -19,7 +19,7 @@ public class QuestionsAndAnswersData {
             File newFile = new File(parentDir,"src\\main\\java\\model\\tests_data.txt");
             FileWriter fw = new FileWriter(newFile, true);
             String toWrite = "File: "
-                    + (AUXFileReading.file != null ? AUXFileReading.file.getName() : "NUMBER MODE")
+                    + (AUXFileReading.getFile() != null ? AUXFileReading.getFile().getName() : "NUMBER MODE")
                     + "\nTime: "
                     + date
                     + "\nAccuracy: "

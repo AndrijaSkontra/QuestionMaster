@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class SettingsActionListener implements ActionListener {
 
-    MainFrame mainFrame;
+    private MainFrame mainFrame;
     private SettingsPanel settingsPanel;
 
     public SettingsActionListener(MainFrame mainFrame) {

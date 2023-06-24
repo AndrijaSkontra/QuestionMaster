@@ -7,9 +7,12 @@ import java.util.stream.Collectors;
 
 public class AUXFileReading {
 
-    public static File file;
-    public static ArrayList<String> questionList = new ArrayList<>();
-    public static String statisticsText = "";
+    private static File file;
+    private static ArrayList<String> questionList = new ArrayList<>();
+
+    public static void setFile(File file) {
+        AUXFileReading.file = file;
+    }
 
     public static void splitFileToList() throws IOException {
 
@@ -22,6 +25,7 @@ public class AUXFileReading {
 
     public static String getStatistics() {
 
+        String statisticsText = "";
         try {
             File currentDir = new File(".");
             File parentDir = currentDir.getParentFile();
@@ -41,4 +45,21 @@ public class AUXFileReading {
             questionList.add((i + 1) + ".");
         }
     }
+
+    public static File getFile() {
+        return file;
+    }
+
+    public static int getQuestionListSize() {
+        return questionList.size();
+    }
+
+    public static String getQuestionListElement(int index) {
+        return questionList.get(index);
+    }
+
+    public static void removeQuestionListElement(int index) {
+        questionList.remove(index);
+    }
 }
+

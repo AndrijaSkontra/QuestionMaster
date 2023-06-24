@@ -83,7 +83,7 @@ public class StartTestActionListener implements ActionListener {
             if (value == JFileChooser.APPROVE_OPTION) {
 
                 // Here we get the list of questions from the file
-                AUXFileReading.file = fileChooser.getSelectedFile();
+                AUXFileReading.setFile(fileChooser.getSelectedFile());
                 try {
                     AUXFileReading.splitFileToList();
                 } catch (IOException ex) {
@@ -101,7 +101,7 @@ public class StartTestActionListener implements ActionListener {
             try {
                 int number = Integer.parseInt(stringNumber);
                 AUXFileReading.numberModeQuestionList(number);
-                AUXFileReading.file = null;
+                AUXFileReading.setFile(null);
 
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(mainFrame, "Please input a number!");

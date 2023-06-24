@@ -143,3 +143,15 @@ File: questions for MQ app.txt
 Time: Sat Jun 24 10:22:33 CEST 2023
 Accuracy: 0.00
 
+File: NUMBER MODE
+Time: Sat Jun 24 11:09:53 CEST 2023
+Accuracy: 66.67
+
+File: questions for MQ app.txt
+Time: Sat Jun 24 11:10:03 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Sat Jun 24 11:16:46 CEST 2023
+Accuracy: 83.33
+

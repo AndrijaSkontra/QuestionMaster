@@ -97,11 +97,11 @@ public class MainFrame extends JFrame {
 
     public void nextQuestion() {
 
-        if (AUXFileReading.questionList.size() > 0) {
-            int randomIndex = ThreadLocalRandom.current().nextInt(0, AUXFileReading.questionList.size());
-            String question = AUXFileReading.questionList.get(randomIndex);
+        if (AUXFileReading.getQuestionListSize() > 0) {
+            int randomIndex = ThreadLocalRandom.current().nextInt(0, AUXFileReading.getQuestionListSize());
+            String question = AUXFileReading.getQuestionListElement(randomIndex);
             QuestionsAndAnswersData.addToAllQuestions(question);
-            AUXFileReading.questionList.remove(randomIndex);
+            AUXFileReading.removeQuestionListElement(randomIndex);
             questionPanel.getQuestionLabel().setText("<html><p>" + question + "</p></html>");
 
         } else {

@@ -1,0 +1,161 @@
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 11:21:56 CEST 2023
+Accuracy: 0.00
+
+File: testForQM2.txt
+Time: Wed Jun 21 11:22:41 CEST 2023
+Accuracy: 33.33
+
+File: testForQM2.txt
+Time: Wed Jun 21 11:27:23 CEST 2023
+Accuracy: 66.67
+
+File: testForQM2.txt
+Time: Wed Jun 21 11:35:11 CEST 2023
+Accuracy: 33.33
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 11:45:17 CEST 2023
+Accuracy: 0.00
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 11:45:52 CEST 2023
+Accuracy: 50.00
+
+File: testForQM2.txt
+Time: Wed Jun 21 11:46:10 CEST 2023
+Accuracy: 66.67
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 13:25:49 CEST 2023
+Accuracy: 50.00
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 15:27:21 CEST 2023
+Accuracy: 50.00
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 19:41:40 CEST 2023
+Accuracy: 50.00
+
+File: testForQM2.txt
+Time: Wed Jun 21 19:41:51 CEST 2023
+Accuracy: 0.00
+
+File: questions for MQ app.txt
+Time: Wed Jun 21 19:42:38 CEST 2023
+Accuracy: 0.00
+
+File: prijedlogZaFilm.docx
+Time: Wed Jun 21 19:45:27 CEST 2023
+Accuracy: NaN
+
+File: Osnovne značajke ljudske komunikacije.docx
+Time: Wed Jun 21 19:45:46 CEST 2023
+Accuracy: NaN
+
+File: NUMBER MODE
+Time: Wed Jun 21 20:20:32 CEST 2023
+Accuracy: 66.67
+
+File: NUMBER MODE
+Time: Wed Jun 21 20:21:03 CEST 2023
+Accuracy: NaN
+
+File: NUMBER MODE
+Time: Wed Jun 21 20:22:17 CEST 2023
+Accuracy: 80.00
+
+File: NUMBER MODE
+Time: Wed Jun 21 20:22:37 CEST 2023
+Accuracy: 50.00
+
+File: testForQM2.txt
+Time: Wed Jun 21 22:34:39 CEST 2023
+Accuracy: 66.67
+
+File: testForQM2.txt
+Time: Wed Jun 21 22:36:08 CEST 2023
+Accuracy: 83.33
+
+File: testForQM2.txt
+Time: Thu Jun 22 10:19:05 CEST 2023
+Accuracy: 66.67
+
+File: testForQM2.txt
+Time: Thu Jun 22 10:19:34 CEST 2023
+Accuracy: 50.00
+
+File: questions for MQ app.txt
+Time: Thu Jun 22 12:13:13 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Thu Jun 22 12:36:18 CEST 2023
+Accuracy: NaN
+
+File: NUMBER MODE
+Time: Thu Jun 22 12:37:34 CEST 2023
+Accuracy: NaN
+
+File: NUMBER MODE
+Time: Thu Jun 22 12:41:36 CEST 2023
+Accuracy: NaN
+
+File: NUMBER MODE
+Time: Thu Jun 22 15:28:08 CEST 2023
+Accuracy: 50.00
+
+File: questions for MQ app.txt
+Time: Thu Jun 22 16:23:34 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Thu Jun 22 16:23:44 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Thu Jun 22 18:10:11 CEST 2023
+Accuracy: 33.33
+
+File: questions for MQ app.txt
+Time: Sat Jun 24 09:46:16 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Sat Jun 24 09:46:47 CEST 2023
+Accuracy: 33.33
+
+File: NUMBER MODE
+Time: Sat Jun 24 10:00:01 CEST 2023
+Accuracy: 50.00
+
+File: questions for MQ app.txt
+Time: Sat Jun 24 10:00:14 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Sat Jun 24 10:22:22 CEST 2023
+Accuracy: 66.67
+
+File: questions for MQ app.txt
+Time: Sat Jun 24 10:22:33 CEST 2023
+Accuracy: 0.00
+
+File: NUMBER MODE
+Time: Sat Jun 24 11:09:53 CEST 2023
+Accuracy: 66.67
+
+File: questions for MQ app.txt
+Time: Sat Jun 24 11:10:03 CEST 2023
+Accuracy: 50.00
+
+File: NUMBER MODE
+Time: Sat Jun 24 11:16:46 CEST 2023
+Accuracy: 83.33
+
+File: NUMBER MODE
+Time: Sat Jun 24 12:12:30 CEST 2023
+Accuracy: 33.33
+

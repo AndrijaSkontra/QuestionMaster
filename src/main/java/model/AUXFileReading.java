@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+/**
+ * This class is used to read the questions from the file and store them in an ArrayList.
+ */
 public class AUXFileReading {
 
     private static File file;
@@ -14,6 +17,11 @@ public class AUXFileReading {
         AUXFileReading.file = file;
     }
 
+    /**
+     * This method is used to split the file into an ArrayList
+     * so every line in file is one element in ArrayList.
+     * @throws IOException - read IOException javadoc.
+     */
     public static void splitFileToList() throws IOException {
 
         Scanner sc = new Scanner(file);
@@ -23,6 +31,10 @@ public class AUXFileReading {
         }
     }
 
+    /**
+     * This method is used to get the statistics from the tests_data.txt file.
+     * @return - the statistics from the tests_data.txt file.
+     */
     public static String getStatistics() {
 
         String statisticsText = "";
@@ -31,6 +43,7 @@ public class AUXFileReading {
             File parentDir = currentDir.getParentFile();
             File newFile = new File(parentDir,"src\\main\\java\\model\\tests_data.txt");
             BufferedReader bf = new BufferedReader(new FileReader(newFile));
+            // This line is used to read the whole file.
             statisticsText = bf.lines().collect(Collectors.joining(System.lineSeparator()));
 
         } catch (FileNotFoundException e) {
@@ -40,6 +53,11 @@ public class AUXFileReading {
         return statisticsText;
     }
 
+    /**
+     * Called when the user chooses the number mode.
+     * Sets the questionList to numbers from 1 to numberOfQuestions.
+     * @param numberOfQuestions - the number of questions the user wants to answer.
+     */
     public static void numberModeQuestionList(int numberOfQuestions) {
         for (int i = 0; i < numberOfQuestions; i++) {
             questionList.add((i + 1) + ".");

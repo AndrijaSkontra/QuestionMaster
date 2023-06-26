@@ -9,6 +9,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * <h3>ActionListener for the SettingsPanel.</h3>
+ * <p>
+ * This class is responsible for handling the user's actions in the SettingsPanel.
+ * </p>
+ */
 public class SettingsActionListener implements ActionListener {
 
     private MainFrame mainFrame;
@@ -22,6 +28,10 @@ public class SettingsActionListener implements ActionListener {
         this.settingsPanel = settingsPanel;
     }
 
+    /**
+     * Handles the user's actions in the SettingsPanel.
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();

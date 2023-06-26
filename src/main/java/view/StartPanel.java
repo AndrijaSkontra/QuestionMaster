@@ -5,6 +5,11 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 
+/**
+ * Class that represents the start panel of the application.
+ * The start panel is immidiately shown when the application is started.
+ * It contains three buttons: start new test, statistics and settings.
+ */
 public class StartPanel extends JPanel {
 
     private JButton startButton;
@@ -23,6 +28,9 @@ public class StartPanel extends JPanel {
         this.startTestActionListener = startTestActionListener;
     }
 
+    /**
+     * Method that initializes the components of the panel.
+     */
     private void initComponents() {
         startButton = new JButton(" START NEW TEST");
         startButton.setFont(MainFrame.BOLD);
@@ -34,6 +42,10 @@ public class StartPanel extends JPanel {
         statisticsButton.setFont(MainFrame.BOLD);
     }
 
+    /**
+     * Method that sets the layout of the panel.
+     * Uses MigLayout as layout manager.
+     */
     private void layoutComponents() {
 
         setLayout(new MigLayout("wrap, center, gap 20% 20%, insets 10%", "[]", "[][][]"));
@@ -43,6 +55,9 @@ public class StartPanel extends JPanel {
 
     }
 
+    /**
+     * Method that activates the panel.
+     */
     public void activatePanel() {
 
         startButton.addActionListener(startTestActionListener);

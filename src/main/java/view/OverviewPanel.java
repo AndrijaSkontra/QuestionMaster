@@ -8,8 +8,10 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-
-// init and layout components in setData
+/**
+ *Overview panel of the application where we can see
+ * how did we answer the questions.
+ */
 public class OverviewPanel extends JPanel {
 
     private JTable overviewTable;
@@ -32,6 +34,9 @@ public class OverviewPanel extends JPanel {
         this.startTestActionListener = startTestActionListener;
     }
 
+    /**
+     * Initialize components in overview panel.
+     */
     private void initComponents() {
 
         overviewLabel = new JLabel("Overview");
@@ -48,7 +53,10 @@ public class OverviewPanel extends JPanel {
         tableScrollPane = new JScrollPane(overviewTable);
     }
 
-
+    /**
+     * Layout components in overview panel.
+     * Uses MigLayout as layout manager.
+     */
     private void layoutComponents() {
 
         setLayout(new MigLayout("center"));
@@ -59,10 +67,19 @@ public class OverviewPanel extends JPanel {
         add(backButton, "align center, dock south, wmax 70");
     }
 
+    /**
+     * Activates all components in overview panel.
+     * Currently only the back button.
+     */
     public void activatePanel() {
         backButton.addActionListener(startTestActionListener);
     }
 
+    /**
+     * Sets the date for the overview table.
+     * It sets questionAndAnswersData to a 2D array of all questions and answers.
+     * Then that data is passed to JTable.
+     */
     public void setData() {
 
         questionsAndAnswersData = new String[QuestionsAndAnswersData.getAllAnswersSize()][2];
@@ -91,6 +108,11 @@ public class OverviewPanel extends JPanel {
         overviewTable.setModel(model);
     }
 
+    /**
+     * Calculates the percentage of known answers from the AllAnswers
+     * ArrayList.
+     * @return returns the percentage as a String.
+     */
     private String calculatePercentageOfKnownAnswersAsString() {
         float percentage;
         int numOfQuestions = QuestionsAndAnswersData.getAllQuestionsSize();

@@ -10,6 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * <h3>ActionListener for the StartTestPanel.</h3>
+ * <p>
+ * This class is responsible for handling the user's actions in the StartTestPanel.
+ * </p>
+ */
 public class StartTestActionListener implements ActionListener {
 
     private StartPanel startPanel;
@@ -43,36 +49,59 @@ public class StartTestActionListener implements ActionListener {
         this.statisticsPanel = statisticsPanel;
     }
 
+    /**
+     * Invoked when an action occurs in the StartPanel.
+     * Based on what button is pressed, the program will procced the corresponding way.
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        actionPerformedStartPanel(source);
-        actionPerformedStartModeDialog(source);
-        actionPerformedQuestionPanel(source);
-        actionPerformedOverviewPanel(source);
+        // 0 - start, 1 - statistics, 2 - settings
+        int buttonPressed = actionPerformedStartPanel(source);
+        if (buttonPressed == 0) {
+            actionPerformedStartModeDialog(source);
+        }
+        if (buttonPressed == 1) {
+            actionPerformedQuestionPanel(source);
+        }
+        if (buttonPressed == 2) {
+            actionPerformedOverviewPanel(source);
+        }
 
     }
 
-    private void actionPerformedStartPanel(Object source) {
+    /**
+     * Checks what button in startPanel is pressed.
+     * @param source the event to be processed
+     * @return 0 if startButton is pressed, 1 if statisticsButton is pressed,
+     * 2 if settingsButton is pressed, -1 if none of the buttons are pressed
+     */
+    private int actionPerformedStartPanel(Object source) {
 
         boolean startButtonPressed = (source == startPanel.getStartButton());
         if (startButtonPressed) {
             mainFrame.openStartModeDialog();
-            return;
+            return 0;
         }
         boolean statisticsButtonPressed = (source == startPanel.getStatisticsButton());
         if (statisticsButtonPressed) {
             mainFrame.openStatisticsPanel();
-            return;
+            return 1;
         }
         boolean settingsButtonPressed = (source == startPanel.getSettingsButton());
         if (settingsButtonPressed) {
             mainFrame.openSettingsPanel();
-            return;
+            return 2;
         }
+        return -1;
     }
 
+    /**
+     * Checks input from start mode dialog.
+     * @param source the event to be processed
+     */
     private void actionPerformedStartModeDialog(Object source) {
 
         boolean classicModeButtonPressed = (source == startModeDialog.getClassicModeButton());
@@ -114,6 +143,10 @@ public class StartTestActionListener implements ActionListener {
         }
     }
 
+    /**
+     * Checks what button in questionPanel is pressed.
+     * @param source the event to be processed
+     */
     private void actionPerformedQuestionPanel(Object source) {
 
         boolean nextQuestionButtonPressed = (source == questionPanel.getNextQuestionButton());
@@ -134,10 +167,14 @@ public class StartTestActionListener implements ActionListener {
         }
     }
 
+    /**
+     * Checks what button in overviewPanel is pressed.
+     * @param source the event to be processed.
+     */
     private void actionPerformedOverviewPanel(Object source) {
         boolean backButtonPressed = (source == overviewPanel.getBackButton());
         if (backButtonPressed) {
-            mainFrame.backToStartPanel();
+            mainFrame.backToStartPanelFromOverview();
             statisticsPanel.getTextArea().setText(AUXFileReading.getStatistics());
         }
     }

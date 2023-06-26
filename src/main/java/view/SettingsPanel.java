@@ -6,6 +6,9 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 
+/**
+ * The panel that is displayed when the user clicks the "Settings" button.
+ */
 public class SettingsPanel extends JPanel{
 
     private JButton darkModeButton;
@@ -24,6 +27,9 @@ public class SettingsPanel extends JPanel{
         this.settingsActionListener = settingsActionListener;
     }
 
+    /**
+     * Initializes the components of the panel.
+     */
     private void initComponents() {
         darkModeButton = new JButton("Dark Mode");
         lightModeButton = new JButton("Light Mode");
@@ -32,6 +38,10 @@ public class SettingsPanel extends JPanel{
         changeThemeLabel.setFont(MainFrame.BOLD);
     }
 
+    /**
+     * Lays out the components of the panel.
+     * Uses MigLayout as layout menager.
+     */
     private void layoutComponents() {
 
         setLayout(new MigLayout("center, gap 3%"));
@@ -42,6 +52,10 @@ public class SettingsPanel extends JPanel{
         add(backButton, "align center");
     }
 
+    /**
+     * Activates the panel.
+     * Adds action listeners to the buttons.
+     */
     public void activatePanel() {
         darkModeButton.addActionListener(settingsActionListener);
         lightModeButton.addActionListener(settingsActionListener);

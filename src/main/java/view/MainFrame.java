@@ -11,6 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * The main frame of the application.
+ * Contains all the panels.
+ * @author Andrija Škontra
+ */
 public class MainFrame extends JFrame {
 
     private StartPanel startPanel;
@@ -42,6 +47,9 @@ public class MainFrame extends JFrame {
 
     }
 
+    /**
+     * Initialize the components of the frame.
+     */
     private void initComponents() {
         startPanel = new StartPanel();
         questionPanel = new QuestionPanel();
@@ -49,7 +57,10 @@ public class MainFrame extends JFrame {
         settingsPanel = new SettingsPanel();
         statisticsPanel = new StatisticsPanel();
     }
-
+    /**
+     * Layout the components of the frame.
+     * Uses MigLayout.
+     */
     private void layoutComponents() {
 
         setLayout(new MigLayout("", "[]", "[]"));
@@ -57,6 +68,10 @@ public class MainFrame extends JFrame {
         add(startPanel, "width 100%, height 100%");
     }
 
+    /**
+     * Activates the frame in a way that the
+     * panels can communicate with each other.
+     */
     private void activateFrame() {
 
         startTestActionListener = new StartTestActionListener(this);
@@ -86,6 +101,11 @@ public class MainFrame extends JFrame {
         statisticsPanel.activatePanel();
     }
 
+    /**
+     * After the user has chosen the mode, the
+     * questioning starts. This method is called from
+     * the StartTestActionListener.
+     */
     public void startQuestioning() {
         startPanel.setVisible(false);
         add(startPanel, "hidemode 3");
@@ -95,6 +115,11 @@ public class MainFrame extends JFrame {
 
     }
 
+    /**
+     * This method is called every time a question is answered.
+     * When there are no more questions left, the overview panel
+     * is shown.
+     */
     public void nextQuestion() {
 
         if (AUXFileReading.getQuestionListSize() > 0) {
@@ -115,6 +140,10 @@ public class MainFrame extends JFrame {
         }
     }
 
+    /**
+     * Opens the start mode dialog where we can see
+     * different modes to choose from.
+     */
     public void openStartModeDialog() {
 
         startModeDialog = new StartModeDialog();
@@ -124,13 +153,11 @@ public class MainFrame extends JFrame {
         startModeDialog.activateDialog();
     }
 
-    public void backToStartPanel() {
-        overviewPanel.setVisible(false);
-        add(overviewPanel, "hidemode 3");
-        startPanel.setVisible(true);
-        add(startPanel, "width 100%, height 100%");
-    }
-
+    /**
+     * Opens the settings panel where we can see
+     * different settings to choose from.
+     * Light mode and Dark mode currently.
+     */
     public void openSettingsPanel() {
         startPanel.setVisible(false);
         add(startPanel, "hidemode 3");
@@ -138,6 +165,11 @@ public class MainFrame extends JFrame {
         add(settingsPanel, "width 100%, height 100%");
     }
 
+    /**
+     * Opens the statistics panel where we can see
+     * all the attempts, when were they made and also
+     * the percentage of correct answers.
+     */
     public void openStatisticsPanel() {
         startPanel.setVisible(false);
         add(startPanel, "hidemode 3");
@@ -145,6 +177,21 @@ public class MainFrame extends JFrame {
         add(statisticsPanel, "width 100%, height 100%");
     }
 
+    /**
+     * Returns the user to the start panel from
+     * the overview panel after back button is pressed.
+     */
+    public void backToStartPanelFromOverview() {
+        overviewPanel.setVisible(false);
+        add(overviewPanel, "hidemode 3");
+        startPanel.setVisible(true);
+        add(startPanel, "width 100%, height 100%");
+    }
+
+    /**
+     * Returns the user to the start panel from
+     * the settings panel after back button is pressed.
+     */
     public void backToStartPanelFromSettings() {
         settingsPanel.setVisible(false);
         add(settingsPanel, "hidemode 3");
@@ -152,6 +199,10 @@ public class MainFrame extends JFrame {
         add(startPanel, "width 100%, height 100%");
     }
 
+    /**
+     * Returns the user to the start panel from
+     * the statistics panel after back button is pressed.
+     */
     public void backToStartPanelFromStatistics() {
         statisticsPanel.setVisible(false);
         add(statisticsPanel, "hidemode 3");
@@ -159,6 +210,10 @@ public class MainFrame extends JFrame {
         add(startPanel, "width 100%, height 100%");
     }
 
+    /**
+     * Updates the UI of the frame and all the panels.
+     * This is needed when we change Look and Feel(theme).
+     */
     public void updateUI() {
         SwingUtilities.updateComponentTreeUI(this);
         SwingUtilities.updateComponentTreeUI(questionPanel);

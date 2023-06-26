@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * This class represents the panel where the questions
+ * are displayed.
+ */
 public class QuestionPanel extends JPanel {
 
     private JLabel questionLabel;
@@ -26,6 +30,9 @@ public class QuestionPanel extends JPanel {
         this.startTestActionListener = startTestActionListener;
     }
 
+    /**
+     * Initializes the components of the panel.
+     */
     private void initComponents() {
         questionLabel = new JLabel();
         questionLabel.setFont(MainFrame.ITALIC);
@@ -47,6 +54,10 @@ public class QuestionPanel extends JPanel {
 
     }
 
+    /**
+     * Lays out the components of the panel.
+     * Uses MigLayout as layout menager.
+     */
     private void layoutComponents() {
         setLayout(new MigLayout("fillx, gapy 7%"));
         add(questionLabel, "wrap");
@@ -58,6 +69,11 @@ public class QuestionPanel extends JPanel {
 
     }
 
+    /**
+     * Activates components in the panel.
+     * Currently only the nextQuestionButton needs
+     * to be activated.
+     */
     public void activatePanel() {
         nextQuestionButton.addActionListener(startTestActionListener);
     }
@@ -68,14 +84,6 @@ public class QuestionPanel extends JPanel {
 
     public JLabel getQuestionLabel() {
         return questionLabel;
-    }
-
-    public JRadioButton getKnowAnswerButton() {
-        return knowAnswerButton;
-    }
-
-    public JRadioButton getDontKnowAnswerButton() {
-        return dontKnowAnswerButton;
     }
 
     public ButtonGroup getButtonGroup() {
